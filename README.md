@@ -1,2 +1,2 @@
 # doovos
-Distributed Object Oriented Operating System
+Distributed Object Oriented Virtual Operating System
