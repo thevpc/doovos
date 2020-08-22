@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="doovos" default="deploy-sousse" basedir=".">
+    <description>Builds, tests, and runs the project doovos.</description>
+    <target name="deploy-default">
+        <copy todir="runtime/doovos/lib">
+            <fileset dir="lib/">
+              <include name="*.jar"/>
+            </fileset>
+        </copy>
+
+        <jar basedir="subprojects/kernel/doovos-kernel-api/build/classes"
+             destfile="runtime/doovos/lib/doovos-kernel-api.jar"/>
+
+        <jar basedir="subprojects/kernel/doovos-kernel-core/build/classes"
+             destfile="runtime/doovos/lib/doovos-kernel-core.jar"/>
+
+        <jar basedir="subprojects/kernel/doovos-kernel-vanilla/build/classes"
+             destfile="runtime/doovos/lib/doovos-kernel-vanilla.jar"/>
+
+        <jar basedir="subprojects/kernel/doovos-kernel-debug/build/classes"
+             destfile="runtime/doovos/lib/doovos-kernel-debug.jar"/>
+
+        <!--<jar basedir="subprojects/kernel/doovos-kernel-vanilla/build/classes"-->
+             <!--destfile="runtime/doovos/lib/doovos-kernel-vanilla.jar"/>-->
+
+        <!--<jar basedir="subprojects/kernel/doovos-kernel-debug/build/classes"-->
+             <!--destfile="runtime/doovos/lib/doovos-kernel-debug.jar"/>-->
+
+        <path id="library.Project">
+          <fileset dir="./runtime/doovos/lib/">
+            <include name="*.jar"/>
+          </fileset>
+        </path>
+        <pathconvert property="lib.project.manifest.classpath" pathsep=" ">
+          <path refid="library.Project"/>
+          <flattenmapper/>
+        </pathconvert>
+
+        <jar basedir="build/classes"
+             destfile="runtime/doovos/lib/doovos.jar">
+            <manifest>
+                <attribute name="Main-Class" value="org.doovos.boot.Boot"/>
+                <attribute name="Class-Path" value="${lib.project.manifest.classpath}"/>
+            </manifest>
+        </jar>
+    </target>
+    <target name="deploy-sousse" depends="deploy-default">
+        <jar basedir="subprojects/guestjvm/doovos-guestjvm-api/build/classes"
+             destfile="runtime/doovos/sites/sousse/sys/bin/doovos-api.jar"/>
+
+        <jar basedir="subprojects/guestjvm/doovos-guestjvm-boot/build/classes"
+             destfile="runtime/doovos/sites/sousse/sys/bin/doovos-boot.jar"/>
+
+        <jar basedir="subprojects/guestjvm/doovos-guestjvm-shell/build/classes"
+             destfile="runtime/doovos/sites/sousse/sys/bin/doovos-shell.jar"/>
+
+        <jar basedir="subprojects/guestjvm/doovos-guestjvm-bin/build/classes"
+             destfile="runtime/doovos/sites/sousse/sys/bin/doovos-bin.jar"/>
+
+        <jar basedir="subprojects/guestjvm/doovos-guestjvm-api-jni/build/classes"
+             destfile="runtime/doovos/sites/sousse/sys/bin/jni/doovos-api-jni.jar"/>
+
+        <jar basedir="subprojects/guestjvm/doovos-guestjvm-jrelib-jni/build/classes"
+             destfile="runtime/doovos/sites/sousse/sys/bin/jni/doovos-jrelib-jni.jar"/>
+
+        <jar basedir="subprojects/guestjvm/doovos-guestjvm-test/build/classes"
+             destfile="runtime/doovos/sites/sousse/sys/bin/jni/doovos-test.jar"/>
+
+    </target>
+    <target name="cleanup-classes">
+        <delete dir="build/classes"/>
+        <delete dir="subprojects/doovos-api/build/classes"/>
+        <delete dir="subprojects/doovos-bin/build/classes"/>
+        <delete dir="subprojects/doovos-api-jni/build/classes"/>
+        <delete dir="subprojects/doovos-java-jni/build/classes"/>
+        <delete dir="subprojects/doovos-test-java/build/classes"/>
+    </target>
+</project>

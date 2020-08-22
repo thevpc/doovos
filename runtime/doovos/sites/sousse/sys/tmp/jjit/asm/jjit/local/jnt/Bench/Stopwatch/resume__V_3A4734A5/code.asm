@@ -1,0 +1,10 @@
+0000 ALOAD(0)
+0001 GETFIELD(jnt.Bench.Stopwatch,running,Z)
+0002 IFNE(9)
+0003 ALOAD(0)
+0004 INVOKESTATIC(java.lang.System,currentTimeMillis()J)
+0005 PUTFIELD(jnt.Bench.Stopwatch,last_time)
+0006 ALOAD(0)
+0007 ICONST_1(Integer{1})
+0008 PUTFIELD(jnt.Bench.Stopwatch,running)
+0009 RETURN

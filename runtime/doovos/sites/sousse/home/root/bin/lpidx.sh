@@ -1,0 +1,2 @@
+export Interpreter=$IDX
+Linpack

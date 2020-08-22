@@ -1,0 +1,12 @@
+0000 ALOAD(1)
+0001 INVOKEVIRTUAL(java.io.StreamTokenizer,nextToken()I)
+0002 BIPUSH(-2)
+0003 IF_ICMPEQ(9)
+0004 ALOAD(0)
+0005 ALOAD(1)
+0006 ALOAD(2)
+0007 LDC(79->"number")
+0008 INVOKEVIRTUAL(jnt.Bench.Bench,parseError(Ljava/io/StreamTokenizer;Ljava/lang/String;Ljava/lang/String;)V)
+0009 ALOAD(1)
+0010 GETFIELD(java.io.StreamTokenizer,nval,D)
+0011 DRETURN

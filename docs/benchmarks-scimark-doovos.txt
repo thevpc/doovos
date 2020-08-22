@@ -1,0 +1,188 @@
+Composite Score: 18.05963770167285
+FFT (1024): 14.458228189859103
+SOR (100x100):   40.144895999999996
+Monte Carlo : 2.046001998810233
+Sparse matmult (N=1000, nz=5000): 13.598937204094213
+LU (100x100): 20.050125115600704
+
+java.vendor: Doovos Team
+java.version: 1.6.0_18
+os.arch: java
+os.name: Doovos
+os.version: 0.2.20
+
+
+SciMark 2.0a
+
+Composite Score: 18.361560957751653
+FFT (1024): 14.566413281588899
+SOR (100x100):   40.591401311193856
+Monte Carlo : 2.008766226640832
+Sparse matmult (N=1000, nz=5000): 13.77732906719394
+LU (100x100): 20.863894902140736
+
+java.vendor: Doovos Team
+java.version: 1.6.0_18
+os.arch: java
+os.name: Doovos
+os.version: 0.2.21
+
+
+
+
+
+------------------------Laptop DELL
+
+
+
+debug:
+Have no file for /usr/java/jdk1.6.0_25/jre/lib/modules/jdk.boot.jar
+loading boot file /home/vpc/xprojects/apps/doovos/runtime/doovos/sites/sousse/sys/cfg/boot.config
+using default factory org.doovos.kernel.core.util.KFactoryImpl
+syslog to /home/vpc/xprojects/apps/doovos/runtime/doovos/sites/sousse/sys/log/sousse6429039610211604040.log
+Local System [sousse] is starting...
+executing /data/sys/bin/events/on-startup.sh...
+*****************************
+Starting Doovos ...
+*****************************
+login: root
+password: root
+DShell version 0.2
+Welcome root
+{7} root@sousse:/data/home/root>run statidx
+{7} root@sousse:/data/home/root>test.api.hello
+9_2_952062976]Thread.run()V INFO: Stat # Instructions: 4 
+9_2_952062976]Thread.run()V INFO: Stat # Invocation  : 1 
+Hello
+9_1_1984564900]hello.main([Ljava/lang/String;)V INFO: Stat # Instructions: 82 953 
+9_1_1984564900]hello.main([Ljava/lang/String;)V INFO: Stat # Invocation  : 2 658 
+{7} root@sousse:/data/home/root>run statjjit
+{7} root@sousse:/data/home/root>test.api.hello
+10_2_549159626]Thread.run()V INFO: Stat # Instructions: 2 
+10_2_549159626]Thread.run()V INFO: Stat # Invocation  : 1 
+Hello
+10_1_33370775]hello.main([Ljava/lang/String;)V INFO: Stat # Instructions: 18 179 
+10_1_33370775]hello.main([Ljava/lang/String;)V INFO: Stat # Invocation  : 2 623 
+{7} root@sousse:/data/home/root>run statidx
+{7} root@sousse:/data/home/root>jnt.scimark2.commandline
+11_2_1495681901]Thread.run()V INFO: Stat # Instructions: 4 
+11_2_1495681901]Thread.run()V INFO: Stat # Invocation  : 1 
+
+SciMark 2.0a
+
+Composite Score: 0.004938313107368654
+FFT (1024): 6.711637881528722E-4
+SOR (100x100):   0.008317680137507152
+Monte Carlo : 0.008799140762995797
+Sparse matmult (N=1000, nz=5000): 4.2423213934633376E-4
+LU (100x100): 0.006479348708841116
+
+java.vendor: Doovos Team
+java.version: 1.6.0_18
+os.arch: java
+os.name: Doovos
+os.version: 0.2.21
+11_1_1535613790]commandline.main([Ljava/lang/String;)V INFO: Stat # Instructions: 12 061 871 
+11_1_1535613790]commandline.main([Ljava/lang/String;)V INFO: Stat # Invocation  : 72 029 
+{7} root@sousse:/data/home/root>run statjjit
+{7} root@sousse:/data/home/root>jnt.scimark2.commandline
+12_2_2027901087]Thread.run()V INFO: Stat # Instructions: 2 
+12_2_2027901087]Thread.run()V INFO: Stat # Invocation  : 1 
+
+SciMark 2.0a
+
+Composite Score: 0.0592846560459792
+FFT (1024): 0.020536265371651517
+SOR (100x100):   0.16547589563086867
+Monte Carlo : 0.05193027086561722
+Sparse matmult (N=1000, nz=5000): 0.003284072167305477
+LU (100x100): 0.05519677619445312
+
+java.vendor: Doovos Team
+java.version: 1.6.0_18
+os.arch: java
+os.name: Doovos
+os.version: 0.2.21
+12_1_423521254]commandline.main([Ljava/lang/String;)V INFO: Stat # Instructions: 2 865 326 
+12_1_423521254]commandline.main([Ljava/lang/String;)V INFO: Stat # Invocation  : 164 460 
+{7} root@sousse:/data/home/root>jnt.scimark2.commandline
+13_2_919149054]Thread.run()V INFO: Stat # Instructions: 2 
+13_2_919149054]Thread.run()V INFO: Stat # Invocation  : 1 
+
+SciMark 2.0a
+
+Composite Score: 0.05931778241646768
+FFT (1024): 0.021309046001230077
+SOR (100x100):   0.16524342087312455
+Monte Carlo : 0.05128012531041754
+Sparse matmult (N=1000, nz=5000): 0.003454231456263985
+LU (100x100): 0.0553020884413023
+
+java.vendor: Doovos Team
+java.version: 1.6.0_18
+os.arch: java
+os.name: Doovos
+os.version: 0.2.21
+13_1_1713361013]commandline.main([Ljava/lang/String;)V INFO: Stat # Instructions: 2 865 342 
+13_1_1713361013]commandline.main([Ljava/lang/String;)V INFO: Stat # Invocation  : 164 461 
+{7} root@sousse:/data/home/root
+
+
+----------------------------------------
+JJIT cacheObj8 (byte) NULL==0 (not  -1)
+
+{7} root@sousse:/data/home/root>smjjit
+
+SciMark 2.0a
+
+Composite Score: 30,371573260222142
+FFT (1024): 22,505167704234978
+SOR (100x100):   72,09499258442622
+Monte Carlo : 2,5160792806045906
+Sparse matmult (N=1000, nz=5000): 20,676425360635168
+LU (100x100): 34,065201371209746
+
+java.vendor: Doovos Team
+java.version: 1.6.0_18
+os.arch: java
+os.name: Doovos
+os.version: 0.2.22
+
+
+
+
+--------------------------------
+
+
+SciMark 2.0a
+
+Composite Score: 34.869126600654994
+FFT (1024): 30.16464989425271
+SOR (100x100):   84.75347479007118
+Monte Carlo : 3.343406851158867
+Sparse matmult (N=1000, nz=5000): 23.662621861880993
+LU (100x100): 32.42147960591123
+
+java.vendor: Doovos Team
+java.version: 1.6.0_18
+os.arch: java
+os.name: Doovos
+os.version: 0.2.23
+{7} root@sousse:/data/home/root>
+
+
+--------------------------------
+SciMark 2.0a
+
+Composite Score: 37.21703048117358
+FFT (1024): 33.29720291687442
+SOR (100x100):   88.98019005266117
+Monte Carlo : 3.4435991894974465
+Sparse matmult (N=1000, nz=5000): 24.74924514083479
+LU (100x100): 35.614915106000076
+
+java.vendor: Doovos Team
+java.version: 1.6.0_18
+os.arch: java
+os.name: Doovos
+os.version: 0.2.24

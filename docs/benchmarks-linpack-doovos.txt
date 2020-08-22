@@ -1,0 +1,58 @@
+Total : 3 listed ressources.
+{7} root@sousse:/data/home/root>lpidx
+Mflops/s: 3.15  Time: 0.22 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+{7} root@sousse:/data/home/root>lpidx
+Mflops/s: 3.135  Time: 0.22 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+{7} root@sousse:/data/home/root>lpjjit
+Mflops/s: 0.413  Time: 1.66 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+{7} root@sousse:/data/home/root>lpjjit
+Mflops/s: 5.407  Time: 0.13 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+{7} root@sousse:/data/home/root>lpjjit
+Mflops/s: 9.156  Time: 0.08 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+{7} root@sousse:/data/home/root>lpjjit
+Mflops/s: 10.899  Time: 0.06 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+{7} root@sousse:/data/home/root>lpjjit
+Mflops/s: 10.729  Time: 0.06 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+{7} root@sousse:/data/home/root>lpjjit
+Mflops/s: 12.262  Time: 0.06 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+{7} root@sousse:/data/home/root>lpjjit
+Mflops/s: 0.74  Time: 0.93 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+{7} root@sousse:/data/home/root>lpjjit
+Mflops/s: 9.279  Time: 0.07 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+{7} root@sousse:/data/home/root>lpjjit
+Mflops/s: 3.924  Time: 0.18 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+{7} root@sousse:/data/home/root>lpjjit
+Mflops/s: 5.493  Time: 0.13 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+{7} root@sousse:/data/home/root>lpjjit
+Mflops/s: 10.249  Time: 0.07 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+vpc@linux-vpc-server:~/xprojects/apps/doovos/runtime/doovos-opt/sites/sousse/bin> /usr/java/latest/bin/java -classpath linpack.jar Linpack
+Mflops/s: 28.611  Time: 0.02 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+vpc@linux-vpc-server:~/xprojects/apps/doovos/runtime/doovos-opt/sites/sousse/bin> /usr/java/latest/bin/java -classpath linpack.jar Linpack
+Mflops/s: 34.333  Time: 0.02 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+vpc@linux-vpc-server:~/xprojects/apps/doovos/runtime/doovos-opt/sites/sousse/bin> /usr/java/latest/bin/java -classpath linpack.jar Linpack
+Mflops/s: 38.148  Time: 0.02 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+vpc@linux-vpc-server:~/xprojects/apps/doovos/runtime/doovos-opt/sites/sousse/bin> /usr/java/latest/bin/java -classpath linpack.jar Linpack
+Mflops/s: 40.392  Time: 0.02 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+vpc@linux-vpc-server:~/xprojects/apps/doovos/runtime/doovos-opt/sites/sousse/bin> /usr/java/latest/bin/java -classpath linpack.jar Linpack
+Mflops/s: 38.148  Time: 0.02 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+vpc@linux-vpc-server:~/xprojects/apps/doovos/runtime/doovos-opt/sites/sousse/bin> /usr/java/latest/bin/java -classpath linpack.jar Linpack
+Mflops/s: 36.14  Time: 0.02 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+vpc@linux-vpc-server:~/xprojects/apps/doovos/runtime/doovos-opt/sites/sousse/bin> /usr/java/latest/bin/java -classpath linpack.jar Linpack
+Mflops/s: 40.392  Time: 0.02 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+vpc@linux-vpc-server:~/xprojects/apps/doovos/runtime/doovos-opt/sites/sousse/bin> /usr/java/latest/bin/java -classpath linpack.jar Linpack
+Mflops/s: 40.392  Time: 0.02 secs  Norm Res: 1.43  Precision: 2.220446049250313E-16
+vpc@linux-vpc-server:~/xprojects/apps/doovos/runtime/doovos-opt/sites/sousse/bin>

@@ -1,0 +1,12 @@
+0000 NEW(java.awt.Color)
+0001 DUP
+0002 ALOAD(0)
+0003 ALOAD(1)
+0004 INVOKEVIRTUAL(java.applet.Applet,getParameter(Ljava/lang/String;)Ljava/lang/String;)
+0005 BIPUSH(16)
+0006 INVOKESTATIC(java.lang.Integer,parseInt(Ljava/lang/String;I)I)
+0007 INVOKESPECIAL(java.awt.Color,<init>(I)V)
+0008 ARETURN
+0009 ASTORE(3)
+0010 ALOAD(2)
+0011 ARETURN

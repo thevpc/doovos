@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/build/classes" />
+    <output-test url="file://$MODULE_DIR$/build/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/nbproject" />
+      <excludeFolder url="file://$MODULE_DIR$/src/org/doovos/kernel/vanilla/jvm/interpreter/asmjitinterpreter" />
+      <excludeFolder url="file://$MODULE_DIR$/src/org/doovos/kernel/vanilla/jvm/interpreter/inlinelinkerinterpreter" />
+      <excludeFolder url="file://$MODULE_DIR$/src/org/doovos/kernel/vanilla/jvm/interpreter/linkerinterpreter" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="doovos-kernel-api" />
+    <orderEntry type="module" module-name="doovos-kernel-core" />
+  </component>
+</module>
+

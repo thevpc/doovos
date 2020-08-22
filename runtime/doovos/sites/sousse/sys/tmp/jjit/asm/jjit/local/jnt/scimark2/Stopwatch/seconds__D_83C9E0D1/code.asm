@@ -1,0 +1,5 @@
+0000 INVOKESTATIC(java.lang.System,currentTimeMillis()J)
+0001 L2D
+0002 LDC(2->"0.0010")
+0003 DMUL
+0004 DRETURN

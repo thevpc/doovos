@@ -1,0 +1,16 @@
+SciMark 2.0a
+
+Composite Score: 770.0405722325346
+FFT (1024): 499.06740432812313
+SOR (100x100):   974.1936118978863
+Monte Carlo : 300.095529176656
+Sparse matmult (N=1000, nz=5000): 586.7144221236223
+LU (100x100): 1490.1318936363857
+
+java.vendor: Sun Microsystems Inc.
+java.version: 1.6.0_20
+os.arch: i386
+os.name: Linux
+os.version: 2.6.34.7-0.5-desktop
+
+

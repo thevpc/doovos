@@ -1,0 +1,16 @@
+vpc@vpc-dell:~/xprojects/apps/doovos/runtime/doovos/sites/sousse/bin> java -classpath scimark2lib.zip jnt.scimark2.commandline                     
+
+SciMark 2.0a                                                                                                                                       
+
+Composite Score: 1197.3938632492266                                                                                                                
+FFT (1024): 748.2799540627004
+SOR (100x100):   1139.5357926599268                                                                                                                
+Monte Carlo : 507.91948076749304                                                                                                                   
+Sparse matmult (N=1000, nz=5000): 1224.9719025679128
+LU (100x100): 2366.2621861880993                                                                                                                   
+
+java.vendor: Sun Microsystems Inc.                                                                                                                 
+java.version: 1.6.0_20
+os.arch: amd64
+os.name: Linux
+os.version: 2.6.37.6-0.5-desktop

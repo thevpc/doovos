@@ -1,0 +1,10 @@
+0000 ALOAD(0)
+0001 GETFIELD(jnt.Bench.Bench,subemail,Ljava/lang/String;)
+0002 IFNONNULL(6)
+0003 ALOAD(0)
+0004 GETFIELD(jnt.Bench.Bench,suburl,Ljava/lang/String;)
+0005 IFNULL(8)
+0006 ICONST_1(Integer{1})
+0007 GOTO(9)
+0008 ICONST_0(Integer{0})
+0009 IRETURN

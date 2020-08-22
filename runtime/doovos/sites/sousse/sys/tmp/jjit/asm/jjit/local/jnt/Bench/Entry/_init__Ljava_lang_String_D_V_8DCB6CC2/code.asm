@@ -1,0 +1,9 @@
+0000 ALOAD(0)
+0001 INVOKESPECIAL(java.lang.Object,<init>()V)
+0002 ALOAD(0)
+0003 ALOAD(1)
+0004 PUTFIELD(jnt.Bench.Entry,platform)
+0005 ALOAD(0)
+0006 ALOAD(2)
+0007 PUTFIELD(jnt.Bench.Entry,values)
+0008 RETURN

@@ -1,0 +1,15 @@
+0000 ALOAD(0)
+0001 GETFIELD(jnt.Bench.Applet,thread,Ljava/lang/Thread;)
+0002 IFNULL(14)
+0003 ALOAD(0)
+0004 GETFIELD(jnt.Bench.Applet,status,Ljava/awt/Label;)
+0005 ALOAD(0)
+0006 INVOKEVIRTUAL(java.awt.Component,getForeground()Ljava/awt/Color;)
+0007 INVOKEVIRTUAL(java.awt.Component,setForeground(Ljava/awt/Color;)V)
+0008 ALOAD(0)
+0009 GETFIELD(jnt.Bench.Applet,thread,Ljava/lang/Thread;)
+0010 INVOKEVIRTUAL(java.lang.Thread,stop()V)
+0011 ALOAD(0)
+0012 ACONST_NULL
+0013 PUTFIELD(jnt.Bench.Applet,thread)
+0014 RETURN

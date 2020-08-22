@@ -1,0 +1,3 @@
+0000 ALOAD(0)
+0001 INVOKEVIRTUAL(jnt.Bench.Applet,abortBenchmark()V)
+0002 RETURN

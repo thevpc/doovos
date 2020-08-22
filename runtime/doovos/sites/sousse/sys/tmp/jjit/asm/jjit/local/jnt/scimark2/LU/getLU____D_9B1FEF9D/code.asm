@@ -1,0 +1,4 @@
+0000 ALOAD(0)
+0001 GETFIELD(jnt.scimark2.LU,LU_,[[D)
+0002 INVOKESTATIC(jnt.scimark2.LU,new_copy([[D)[[D)
+0003 ARETURN

@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>Doovos : Distributed Object Oriented Virtual Operating System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<script src="https://ssl.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-4457783-3";
+urchinTracker();
+</script>
+<CENTER>
+<h1>Doovos</h1>
+<h1><a href="http://doovos.dev.java.net"><font size=-1>Distributed Object Oriented Virtual Operating System</font></a></h1>
+</CENTER>
+<p><B>Doovos</B> is a new <I>Open Source</I> Distributed Object Oriented Operating System Design and implementation based on the Java Plateform.<BR>
+	Actually, it is a try for designing a distributed operation system in top of existing centralized/network OS.<BR>
+	Designed OS will follow the object oriented architecture for redefining all OS resources (memory,process,file system,device,...etc.) in a highly distributed context. <BR>
+	For academic purpuses, design will try to propose the most configurable OS implementation 
+	allowing the test/validation and comparaison of some distributed OS algorithms
+	<BR>
+</p>
+Doovos defines three important actors:
+<UL>
+   <LI>Site</LI>
+   <LI>System</LI>
+   <LI>Resource</LI>
+</UL>
+<P>
+The <B>site</B> is the Exported Object that represents a local instance of Doovos on a particular Machine. <BR>
+Doovos as a distributed system, is the association of all of theses sites.
+On a single Physical machine many sites may be created.
+</P>
+
+<P>
+The <B>system</B> is How all of theses sites are seen by every System or User Object (mainly what w'ill call Resource)
+</P>
+
+<P>
+The <B>Resource</B> is any item that is handled by the distributed system. It may be a device or any soft resource such as file, process, folder, stream etc.
+</P>
+
+<P>
+When launching multiple system instances (multiple sites), on any of these instances, user could/should see/use all the sites resources regardles on their location.
+All System resources, when it has a sens, may migrate from a site to another in a transparent way : user should not be alarmed for that.
+</P>
+
+Doovos provides a unique root (a la UNIX of course but not so much). this root has the following structure :
+<pre>
+/--
+  + device
+  + process
+  + file
+  + stream
+</pre>
+<P>
+<B>device</B> folder is a holder for all devices supported by the system. actually only screen devices are supported. 
+On every site, a default screen will be created. each screen may handle a set terminals (text terminal)
+</P>
+
+<P>
+<B>process</B> folder is a holder for all processes created by the system regardless of their creation/execution location.
+every process uses a couple of memory (volatile) type of objects stored in two virtual folders names <B>mem</B> and <B>env</B>.<BR>
+<B>mem</B> folder holds all process memory allocated objects for that process.<BR><B>env</B> is a holder for all env variables.
+</P>
+
+<P>
+<B>file</B> folder is a holder for all sites exported folders. in fact every site (Doovos instance) can on boot time mount 
+native folders (let's say C:/myexample) as virtual folder with a user defined name (let's say folder1 that will be accessible as /file/folder1);
+when different sites mount folders with the same virtual name, automatic fusion of both structures is processed by Doovos : Folders with the same 
+name will be seen once and will hold all children for all folders with that particular name.
+</P>
+
+<P>
+<B>stream</B> folder is a holder for streams sutch as file input and output streams, named pipes, ...etc.
+</P>
+
+Better documentation will of course be provided. For now you could type 'man' on the provided shell to get a list of useful commands. <BR>
+the most useful is <B><pre>tree</pre></B> with show all the system objects structure.
+
+<H2><Font color=BLUE>Main Features</Font></H2>
+<UL>
+<LI>Object Oriented</LI>
+<LI>Based on the Java Plateform so may be used on top of all compatible native OS</LI>
+<LI>Tiny kernel with Highly customizable components</LI>
+<LI>Academic driven philosophy</LI>
+<LI>Extensible architeture</LI>
+<LI>Enhanced Shell</LI>
+<LI>Load Balancing</LI>
+<LI>Process, Memory and File Migration</LI>
+<LI>... And any other useful feature you'll suggest ;)</LI>
+</UL>
+
+<H2><Font color=BLUE>Screenshots (of the provided shell)</Font></H2>
+<center>
+<Table border=0>
+<TR>
+<TD><Table border=0><TR><TD><a href="snapshots/sshot1.png"><p align="center"><img src="snapshots/sshot1-thumb.png" width="200" height="200"></p></a></TD></TR><TR><TD><P align="center">pstree command</P></TD></TR></Table></TD>
+<TD><Table border=0><TR><TD><a href="snapshots/sshot2.png"><p align="center"><img src="snapshots/sshot2-thumb.png" width="200" height="200"></p></a></TD></TR><TR><TD><P align="center">tree command</P></TD></TR></Table></TD>
+<TD><Table border=0><TR><TD><a href="snapshots/sshot3.png"><p align="center"><img src="snapshots/sshot3-thumb.png" width="200" height="200"></p></a></TD></TR><TR><TD><P align="center">ls command (showing all sites processes)</P></TD></TR></Table></TD>
+<TD><Table border=0><TR><TD><a href="snapshots/sshot4.png"><p align="center"><img src="snapshots/sshot4-thumb.png" width="200" height="200"></p></a></TD></TR><TR><TD><P align="center">auto complete support</P></TD></TR></Table></TD>
+</TR>
+</Table>
+</center>
+<H2><Font color=BLUE>How to use</Font></H2>
+<center>
+    Further info for using Doovos. A shell very similar to a UNIX shell is provided. default Login/Password are root/root.
+</center>
+<H2>Download latest release of Doovos</H2>
+<P>
+Latest release is 0.1.0 (the first version i provide) <a href="http://doovos.dev.java.net/release/doovos-0.1.0.20051215.zip">here</a>.
+</P>
+<P><B>Requirement</B></P>
+<P>
+<a href="http://java.sun.com">Java Runtime Environment(JRE) 1.5</a> is required for running this tool.
+</P>
+<H2><Font color=BLUE>Credits</Font></H2>
+<UL>
+<LI>Main Developer : Taha Ben Salah (thevpc@walla.com)</LI>
+</UL>
+<H2><Font color=BLUE>Change log</Font></H2>
+<H3>version 0.1.0.2551215 First version (not final)</H3>
+This version is the initial release. <BR>
+Security is not implemented neither is the load balancing. 
+However all resources tree structure is implemented. resource migration is also implemented.
+
+<H2><Font color=BLUE>Features Planned for future versions</Font></H2>
+<OL>
+<LI> More documentation</LI>
+<LI> Security support</LI>
+<LI> Full pipes</LI>
+<LI> Non sequential files support</LI>
+<LI> Better Shell</LI>
+<LI>Localization Support : <B>Arabic</B>, English, French and Italian</LI>
+<LI> Lots of Distributed Algorithms implementation</LI>
+<LI> More personalization</LI>
+</OL>
+

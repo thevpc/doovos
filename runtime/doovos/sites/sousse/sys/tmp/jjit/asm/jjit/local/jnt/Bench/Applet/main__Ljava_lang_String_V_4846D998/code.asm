@@ -1,0 +1,14 @@
+0000 NEW(jnt.Bench.AppletFrame)
+0001 DUP
+0002 ALOAD(0)
+0003 ARRAYLENGTH
+0004 ICONST_1(Integer{1})
+0005 IF_ICMPLT(10)
+0006 ALOAD(0)
+0007 ICONST_0(Integer{0})
+0008 AALOAD
+0009 GOTO(11)
+0010 LDC(90->"default.descriptor")
+0011 INVOKESPECIAL(jnt.Bench.AppletFrame,<init>(Ljava/lang/String;)V)
+0012 POP
+0013 RETURN

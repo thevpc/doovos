@@ -1,0 +1,25 @@
+0000 ALOAD(0)
+0001 ICONST_1(Integer{1})
+0002 PUTFIELD(jnt.Bench.Bench,timerAPIused)
+0003 ALOAD(0)
+0004 LDC(103->"GC'ing")
+0005 INVOKEVIRTUAL(jnt.Bench.Bench,noteStatus(Ljava/lang/String;)V)
+0006 INVOKESTATIC(java.lang.System,gc()V)
+0007 ALOAD(0)
+0008 NEW(java.lang.StringBuffer)
+0009 DUP
+0010 INVOKESPECIAL(java.lang.StringBuffer,<init>()V)
+0011 LDC(105->"Executing: ")
+0012 INVOKEVIRTUAL(java.lang.StringBuffer,append(Ljava/lang/String;)Ljava/lang/StringBuffer;)
+0013 ALOAD(0)
+0014 GETFIELD(jnt.Bench.Bench,segments,[Ljnt/Bench/Segment;)
+0015 ILOAD(1)
+0016 AALOAD
+0017 GETFIELD(jnt.Bench.Segment,name,Ljava/lang/String;)
+0018 INVOKEVIRTUAL(java.lang.StringBuffer,append(Ljava/lang/String;)Ljava/lang/StringBuffer;)
+0019 INVOKEVIRTUAL(java.lang.StringBuffer,toString()Ljava/lang/String;)
+0020 INVOKEVIRTUAL(jnt.Bench.Bench,noteStatus(Ljava/lang/String;)V)
+0021 INVOKESTATIC(java.lang.Thread,currentThread()Ljava/lang/Thread;)
+0022 POP
+0023 INVOKESTATIC(java.lang.Thread,yield()V)
+0024 RETURN

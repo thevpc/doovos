@@ -1,0 +1,12 @@
+0000 ALOAD(1)
+0001 GETFIELD(java.awt.Event,id,I)
+0002 SIPUSH(Integer{201})
+0003 IF_ICMPNE(10)
+0004 ALOAD(0)
+0005 INVOKEVIRTUAL(java.awt.Window,dispose()V)
+0006 ICONST_0(Integer{0})
+0007 INVOKESTATIC(java.lang.System,exit(I)V)
+0008 ICONST_1(Integer{1})
+0009 IRETURN
+0010 ICONST_0(Integer{0})
+0011 IRETURN

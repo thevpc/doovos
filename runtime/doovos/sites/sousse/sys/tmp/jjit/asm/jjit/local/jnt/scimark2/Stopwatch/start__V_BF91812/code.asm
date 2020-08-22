@@ -1,0 +1,13 @@
+0000 ALOAD(0)
+0001 GETFIELD(jnt.scimark2.Stopwatch,running,Z)
+0002 IFNE(12)
+0003 ALOAD(0)
+0004 ICONST_1(Integer{1})
+0005 PUTFIELD(jnt.scimark2.Stopwatch,running)
+0006 ALOAD(0)
+0007 DCONST_0(Double{0.0})
+0008 PUTFIELD(jnt.scimark2.Stopwatch,total)
+0009 ALOAD(0)
+0010 INVOKESTATIC(jnt.scimark2.Stopwatch,seconds()D)
+0011 PUTFIELD(jnt.scimark2.Stopwatch,last_time)
+0012 RETURN

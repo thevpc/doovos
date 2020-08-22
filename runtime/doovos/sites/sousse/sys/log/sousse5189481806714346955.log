@@ -1,0 +1,19 @@
+<<<syslog>>> [INFO ][2012-06-24 13:55:44.612 @ sousse] Starting Doovos instance named sousse (uuid = 026ff765-fcd9-427e-9b7f-161417f58c38)
+<<<syslog>>> [DEBUG][2012-06-24 13:55:44.613 @ sousse] Loading Remote Resources Naming Table ...
+<<<syslog>>> [INFO ][2012-06-24 13:55:44.626 @ sousse] Start SiteManager multicast(231.192.1.2:7777), rmi(vpclaptop.site:9001)
+<<<syslog>>> [DEBUG][2012-06-24 13:55:44.627 @ sousse] Starting KTableListener...
+<<<syslog>>> [DEBUG][2012-06-24 13:55:44.628 @ sousse] [MC] KTableListener started on /231.192.1.2:7777
+<<<syslog>>> [DEBUG][2012-06-24 13:55:44.628 @ sousse] SEND TO MULTICAST </231.192.1.2:7777> message "Salam:026ff765-fcd9-427e-9b7f-161417f58c38@anonymous@anonymous"
+<<<syslog>>> [DEBUG][2012-06-24 13:55:44.629 @ sousse] SEND TO MULTICAST </231.192.1.2:7778> message "Salam:026ff765-fcd9-427e-9b7f-161417f58c38@anonymous@anonymous"
+<<<syslog>>> [INFO ][2012-06-24 13:55:44.716 @ sousse] creating local registry on port 9001... rmi url is rmi://vpclaptop.site:9001/Doovos/sousse
+<<<syslog>>> [INFO ][2012-06-24 13:55:44.769 @ sousse] registering rmi://vpclaptop.site:9001/Doovos/sousse
+<<<syslog>>> [DEBUG][2012-06-24 13:55:44.769 @ sousse] SEND TO MULTICAST </231.192.1.2:7777> message "Salam:026ff765-fcd9-427e-9b7f-161417f58c38@sousse@rmi://vpclaptop.site:9001/Doovos/sousse"
+<<<syslog>>> [DEBUG][2012-06-24 13:55:44.770 @ sousse] SEND TO MULTICAST </231.192.1.2:7778> message "Salam:026ff765-fcd9-427e-9b7f-161417f58c38@sousse@rmi://vpclaptop.site:9001/Doovos/sousse"
+<<<syslog>>> [INFO ][2012-06-24 13:55:44.770 @ sousse] Starting runtime provider
+<<<syslog>>> [INFO ][2012-06-24 13:55:44.802 @ sousse] Start NativeFS:./.
+<<<syslog>>> [INFO ][2012-06-24 13:55:44.802 @ sousse] Assigning id : [sousse] to local site ...
+<<<syslog>>> [INFO ][2012-06-24 14:00:15.247 @ sousse] Local System [sousse] is shutting down
+<<<syslog>>> [INFO ][2012-06-24 14:00:15.247 @ sousse] Shutdown runtime provider
+<<<syslog>>> [INFO ][2012-06-24 14:00:15.248 @ sousse] Shutdown NativeFS:./.
+<<<syslog>>> [DEBUG][2012-06-24 14:00:15.248 @ sousse] freeing local processes
+<<<syslog>>> [DEBUG][2012-06-24 14:00:15.248 @ sousse] Local System [sousse] dead

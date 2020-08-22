@@ -1,0 +1,17 @@
+0000 ALOAD(1)
+0001 INVOKEVIRTUAL(java.io.StreamTokenizer,nextToken()I)
+0002 ILOAD(2)
+0003 IF_ICMPEQ(16)
+0004 ALOAD(0)
+0005 ALOAD(1)
+0006 NEW(java.lang.StringBuffer)
+0007 DUP
+0008 INVOKESPECIAL(java.lang.StringBuffer,<init>()V)
+0009 LDC(57->"")
+0010 INVOKEVIRTUAL(java.lang.StringBuffer,append(Ljava/lang/String;)Ljava/lang/StringBuffer;)
+0011 ILOAD(2)
+0012 INVOKEVIRTUAL(java.lang.StringBuffer,append(C)Ljava/lang/StringBuffer;)
+0013 INVOKEVIRTUAL(java.lang.StringBuffer,toString()Ljava/lang/String;)
+0014 LDC(59->"char")
+0015 INVOKEVIRTUAL(jnt.Bench.Bench,parseError(Ljava/io/StreamTokenizer;Ljava/lang/String;Ljava/lang/String;)V)
+0016 RETURN

@@ -1,0 +1,4 @@
+0000 ALOAD(0)
+0001 GETFIELD(jnt.Bench.Bench,segments,[Ljnt/Bench/Segment;)
+0002 ARRAYLENGTH
+0003 IRETURN

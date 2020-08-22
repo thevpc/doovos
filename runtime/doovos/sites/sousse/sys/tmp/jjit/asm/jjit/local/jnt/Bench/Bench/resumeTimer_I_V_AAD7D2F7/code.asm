@@ -1,0 +1,9 @@
+0000 ALOAD(0)
+0001 ILOAD(1)
+0002 INVOKEVIRTUAL(jnt.Bench.Bench,prepTimer(I)V)
+0003 ALOAD(0)
+0004 GETFIELD(jnt.Bench.Bench,timer,[Ljnt/Bench/Stopwatch;)
+0005 ILOAD(1)
+0006 AALOAD
+0007 INVOKEVIRTUAL(jnt.Bench.Stopwatch,resume()V)
+0008 RETURN

@@ -1,0 +1,2 @@
+export Interpreter=$JJIT
+Linpack

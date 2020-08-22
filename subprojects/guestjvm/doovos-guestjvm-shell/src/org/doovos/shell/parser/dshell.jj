@@ -1,0 +1,433 @@
+options {
+    STATIC = false ;
+}
+
+PARSER_BEGIN(DShellParserImpl)
+package org.doovos.shell.parser;
+import org.doovos.shell.parser.nodes.*;
+import java.util.*;
+import java.io.*;
+
+class DShellParserImpl{
+    private NodeTree tree=new NodeTree();
+}
+
+PARSER_END(DShellParserImpl)
+
+/* Production 1 */
+
+Node parse():
+{}
+{
+  (<NEWLINE>)*
+  (
+  (
+  block()
+  ) <EOF>
+  {
+      Node node=tree.pop();
+      return node;
+  }
+  )
+  |
+  (<EOF>)
+  {
+    return null;
+  }
+}
+
+void commandItem() :
+{}
+{
+  (<OP_EQ> )
+            {
+                ((CommandNode)tree.peek()).items.add(new CommandItemNode(new ItemNode(token)));
+            }
+ | (<ITEM_NAME> )
+            {
+                ((CommandNode)tree.peek()).items.add(new CommandItemNode(new ItemNode(token)));
+            }
+ | (<ITEM_STRING_DBL>)
+            {
+                ((CommandNode)tree.peek()).items.add(new CommandItemNode(new StringDoubleCotedNode(token)));
+            }
+ | (<ITEM_STRING_SMP>)
+            {
+                ((CommandNode)tree.peek()).items.add(new CommandItemNode(new StringSimpleCotedNode(token)));
+            }
+ | (<ITEM_STRING_ANTI>)
+            {
+                ((CommandNode)tree.peek()).items.add(new CommandItemNode(new StringAntiCotedNode(token)));
+            }
+ | (<ITEM_VAR>)
+            {
+                ((CommandNode)tree.peek()).items.add(new CommandItemNode(new VarDollarNode(token)));
+            }
+}
+
+void ifblock() :
+{}
+{
+<IF> {tree.push(new IfNode());}<LPAR>
+    block() {
+        Node bnode=tree.pop();
+        IfNode ifnode=(IfNode)tree.peek();
+        ifnode.conditionNode=bnode;
+    }
+    <RPAR> <LACC> block() <RACC>
+     {
+        Node bnode1=tree.pop();
+        IfNode ifnode1=(IfNode)tree.peek();
+        ifnode1.thenNode=bnode1;
+    }
+    [<ELSE> <LACC>
+    block() <RACC>
+         {
+            Node bnode2=tree.pop();
+            IfNode ifnode2=(IfNode)tree.peek();
+            ifnode2.thenNode=bnode2;
+        }
+    ]
+}
+void whileblock() :
+{}
+{
+<WHILE>
+ {
+    tree.push(new WhileNode());
+ }
+<LPAR>
+block()
+    {
+            Node bnode=tree.pop();
+            WhileNode ifnode=(WhileNode)tree.peek();
+            ifnode.conditionNode=bnode;
+    }<RPAR> <LACC> block() <RACC>
+    {
+            Node bnode1=tree.pop();
+            WhileNode ifnode1=(WhileNode)tree.peek();
+            ifnode1.whileNode=bnode1;
+    }
+}
+
+void gotoblock() :
+{}
+{
+<GOTO>
+<ITEM_NAME>
+    {
+            tree.push(new GotoNode(token));
+    }
+}
+
+void labelblock() :
+{}
+{
+<LABEL>
+<ITEM_NAME>
+    {
+            tree.push(new LabelNode(token));
+    }
+}
+
+void block() :
+{}
+{
+//  (<NEWLINE>)*
+  (
+  command()
+  |
+  ifblock()
+  |
+  whileblock()
+  |
+  gotoblock()
+  |
+  labelblock()
+
+ |( <LACC>  (<NEWLINE>)* block() <RACC>  (<NEWLINE>)*)
+            {
+                Node n=(Node)tree.pop();
+                ((CommandNode)tree.peek()).items.add(new CommandItemNode(n));
+            }
+  )
+        (
+		[
+		(
+		binop()  (<NEWLINE>)* block()
+		    {
+			    {
+				Node cmd2=tree.pop();
+				TokenNode op=(TokenNode)tree.pop();
+				Node cmd1=tree.pop();
+				tree.push(new BinoOp(op.getToken().image,cmd1,cmd2));
+			    }
+		    }
+		)
+		|
+		(
+		block()
+		    {
+			    {
+				Node cmd2=tree.pop();
+				Node cmd1=tree.pop();
+				tree.push(new BinoOp(";",cmd1,cmd2));
+			    }
+		    }
+		)
+		]
+	)
+  {
+
+  }
+}
+
+
+void command() :
+{}
+{
+{
+   tree.push(new CommandNode());
+}
+   (((commandItem())+ [commandUsing()][commandRedirect()] 
+  [
+  <OP_AND>{
+    CommandNode c=(CommandNode)tree.peek();
+    c.nowait=true;
+  }
+  ]) ((<NEWLINE> | <OP_COMMA>)+  | <EOF>))
+           {
+                tree.peek();
+            }
+}
+
+void commandUsing() :
+{}
+{
+  (<USING> ((
+    commandUsingItem()
+    <OP_EQ>
+    commandUsingItem()
+    ){
+        ItemNode b=(ItemNode)tree.pop();
+        ItemNode a=(ItemNode)tree.pop();
+        CommandNode c=(CommandNode)tree.pop();
+        c.usingItems.add(new CommandUsingItemNode(a,b));
+        tree.push(c);
+     }
+    )+)
+}
+
+void commandUsingItem() :
+{}
+{
+    (<ITEM_NAME>)
+    {
+        tree.push(new ItemNode(token));
+    }
+}
+
+void commandRedirect() :
+{}
+{
+  ((<RED_IN>|<RED_OUT>|<RED_ERR>|<RED_OUT_APP>|<RED_ERR_APP>)
+            {
+                tree.push(new TokenNode(token));
+                System.out.println("commandRedirect : "+token.image);
+            }
+  (
+  (<ITEM_NAME> )
+            {
+		    {
+		       TokenNode red=(TokenNode)tree.pop();
+		       CommandNode cmd=(CommandNode)tree.peek();
+		       cmd.redirectItems.add(new CommandRedirectItemNode(red,new ItemNode(token)));
+		    }
+            }
+ | (<ITEM_STRING_DBL>)
+            {
+		    {
+		       TokenNode red=(TokenNode)tree.pop();
+		       CommandNode cmd=(CommandNode)tree.peek();
+		       cmd.redirectItems.add(new CommandRedirectItemNode(red,new StringDoubleCotedNode(token)));
+		    }
+            }
+ | (<ITEM_STRING_SMP>)
+            {
+		    {
+		       TokenNode red=(TokenNode)tree.pop();
+		       CommandNode cmd=(CommandNode)tree.peek();
+		       cmd.redirectItems.add(new CommandRedirectItemNode(red,new StringSimpleCotedNode(token)));
+		    }
+            }
+ | (<ITEM_STRING_ANTI>)
+            {
+		    {
+		       TokenNode red=(TokenNode)tree.pop();
+		       CommandNode cmd=(CommandNode)tree.peek();
+		       cmd.redirectItems.add(new CommandRedirectItemNode(red,new StringAntiCotedNode(token)));
+		    }
+            }
+ | (<ITEM_VAR>)
+            {
+		    {
+		       TokenNode red=(TokenNode)tree.pop();
+		       CommandNode cmd=(CommandNode)tree.peek();
+		       cmd.redirectItems.add(new CommandRedirectItemNode(red,new VarDollarNode(token)));
+		    }
+            }
+
+  )
+  )
+
+}
+
+
+void binop() :
+{}
+{
+    (
+     <OP_AND2>
+    |<OP_THEN>
+    |<OP_AT>
+    |<OP_AT2>
+    |<OP_VDASH>
+    |<OP_VDASH2>
+    |<OP_LT>
+    |<OP_LT2>
+    |<OP_LET>
+    |<OP_GT>
+    |<OP_GT2>
+    |<OP_GET>
+//    |<OP_COMMA>
+    )
+    {
+        tree.push(new TokenNode(token));
+    }
+}
+TOKEN :
+{
+   <  USING : "using">
+  |<  IF : "if">
+  |<  ELSE : "else">
+  |<  WHILE : "while">
+  |<  BREAK : "break">
+  |<  GOTO : "goto">
+  |<  LABEL : "label">
+  | <  OP_EQ : "=">
+  | <  OP_COMMA : ";">
+  | <  OP_AND   : "&">
+  | <  OP_AND2  : "&&">
+  | <  OP_THEN  : "==>">
+  | <  OP_AT  : "@">
+  | <  OP_AT2 : "@@">
+  | <  OP_VDASH  : "|">
+  | <  OP_VDASH2 : "||">
+  | <  OP_LT : "<">
+  | <  OP_LT2 : "<<">
+  | <  OP_LET : "<=">
+  | <  OP_GT : ">">
+  | <  OP_GT2 : ">>">
+  | <  OP_GET : ">=">
+  | <  LACC : "{">
+  | <  RACC : "}">
+  | <  LPAR : "(">
+  | <  RPAR : ")">
+  | <  RED_IN  : "&<">
+  | <  RED_OUT_APP : "&1>>" | "&>>" >
+  | <  RED_ERR_APP : "&2>>">
+  | <  RED_OUT : "&1>" | "&>" >
+  | <  RED_ERR : "&2>">
+  | <  NEWLINE : "\n">
+  | <  ITEM_STRING_DBL :
+   (
+   "\""
+   ( ( ~["\"","\\","\n","\r"])
+   | ("\\" (
+             ["n","t","v","b","r","f","a","\\","?","'","\""]
+            |
+             "0" (["0"-"7"])*
+            |
+             ["1"-"9"] (["0"-"9"])*
+            |
+             ("0x" | "0X") (["0"-"9","a"-"f","A"-"F"])+
+           )
+     )
+   )*
+   "\""
+   )
+   >
+  | <  ITEM_STRING_SMP :
+   (
+   "\'"
+   ( ( ~["\'","\\","\n","\r"])
+   | ("\\" (
+             ["n","t","v","b","r","f","a","\\","?","'","\""]
+            |
+             "0" (["0"-"7"])*
+            |
+             ["1"-"9"] (["0"-"9"])*
+            |
+             ("0x" | "0X") (["0"-"9","a"-"f","A"-"F"])+
+           )
+     )
+   )*
+   "\'"
+   )
+   >
+  | <  ITEM_STRING_ANTI :
+   (
+   "`"
+   ( ( ~["`","\\","\n","\r"])
+   | ("\\" (
+             ["n","t","v","b","r","f","a","\\","?","'","\""]
+            |
+             "0" (["0"-"7"])*
+            |
+             ["1"-"9"] (["0"-"9"])*
+            |
+             ("0x" | "0X") (["0"-"9","a"-"f","A"-"F"])+
+           )
+     )
+   )*
+   "`"
+   )
+   >
+   | <  ITEM_VAR :
+   ("${" (
+             ["A"-"Z","a"-"z"] (["A"-"Z","a"-"z","_",".","0"-"9"])*
+           )
+       "}"
+     )
+   >
+  | <  ITEM_NAME :
+   (  
+     (~[ "`"," ", "'", "\\", "\r", "\t", "\n", "\r", "(", ")", "[", "]", "{", "}", "{", "}", "<", ">", "=", "!", ":"])
+   | ("\\" (
+             ["n","t","v","b","r","f","a","\\","?","'","\""," "]
+            |
+             "0" (["0"-"7"])*
+            |
+             ["1"-"9"] (["0"-"9"])*
+            |
+             ("0x" | "0X") (["0"-"9","a"-"f","A"-"F"])+
+           )
+     )
+   )+
+   >
+}
+
+SKIP :
+{
+  < " " >
+| < "\t" >
+| < "//" (~["\n"])* "\n" >
+| < "//" (~["\n"])* <EOF> >
+| < "#" (~["\n"])* "\n" >
+| < "#" (~["\n"])* <EOF> >
+| <"/*" (~["*"])* "*" (~["/"] (~["*"])* "*")* "/">
+//| < "#" ([" ","\t"])* (["0"-"9"])+
+//    (([" ","\t"])* "\"" (~["\""])+ "\""
+//           ([" ","\t"])* (["0"-"9"])* ([" ","\t"])* (["0"-"9"])*)? "\n" >
+}
+

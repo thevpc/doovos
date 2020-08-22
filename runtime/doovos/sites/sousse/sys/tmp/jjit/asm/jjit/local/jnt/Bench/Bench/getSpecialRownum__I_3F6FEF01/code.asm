@@ -1,0 +1,10 @@
+0000 ALOAD(0)
+0001 GETFIELD(jnt.Bench.Bench,specpos,I)
+0002 IFLT(8)
+0003 ICONST_2(Integer{2})
+0004 ALOAD(0)
+0005 GETFIELD(jnt.Bench.Bench,specpos,I)
+0006 IADD
+0007 GOTO(9)
+0008 ICONST_M1(Integer{-1})
+0009 IRETURN

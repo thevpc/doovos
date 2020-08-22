@@ -1,0 +1,11 @@
+0000 ALOAD(0)
+0001 GETFIELD(jnt.Bench.Bench,timer,[Ljnt/Bench/Stopwatch;)
+0002 ILOAD(1)
+0003 AALOAD
+0004 INVOKEVIRTUAL(jnt.Bench.Stopwatch,stop()D)
+0005 DSTORE(2)
+0006 ALOAD(0)
+0007 LDC(110->"done")
+0008 INVOKEVIRTUAL(jnt.Bench.Bench,noteStatus(Ljava/lang/String;)V)
+0009 DLOAD(2)
+0010 DRETURN

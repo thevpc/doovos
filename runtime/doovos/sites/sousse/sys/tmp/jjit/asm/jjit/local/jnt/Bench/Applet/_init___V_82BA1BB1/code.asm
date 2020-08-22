@@ -1,0 +1,15 @@
+0000 ALOAD(0)
+0001 INVOKESPECIAL(java.applet.Applet,<init>()V)
+0002 ALOAD(0)
+0003 ACONST_NULL
+0004 PUTFIELD(jnt.Bench.Applet,bench)
+0005 ALOAD(0)
+0006 ICONST_0(Integer{0})
+0007 PUTFIELD(jnt.Bench.Applet,segment)
+0008 ALOAD(0)
+0009 ICONST_M1(Integer{-1})
+0010 PUTFIELD(jnt.Bench.Applet,cursor)
+0011 ALOAD(0)
+0012 ACONST_NULL
+0013 PUTFIELD(jnt.Bench.Applet,parent)
+0014 RETURN
